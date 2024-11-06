@@ -1,0 +1,136 @@
+.invoice-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  border:2px solid #130000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fefefe;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  border-radius: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+header .company-info {
+  font-size: 1.2em;
+  line-height: 1.4;
+}
+
+header .invoice-info {
+  text-align: right;
+  font-size: 1em;
+}
+
+h2 {
+  margin-bottom: 20px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 10px;
+}
+
+.invoice-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.invoice-item p {
+  margin: 0;
+}
+
+.invoice-total, #gst-details {
+  margin-top: 20px;
+}
+
+.invoice-total p, #gst-details p {
+  margin: 5px 0;
+  font-weight: bold;
+}
+
+footer {
+  margin-top: 40px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+  text-align: center;
+}
+
+button {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #15ae00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #ea0d0d;
+}
+
+
+
+
+
+#payment-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+#payment-container h2 {
+  margin-bottom: 10px;
+}
+
+#payment-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#payment-container input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#payment-container input[type="radio"] {
+  margin-right: 10px;
+}
+
+#payment-container button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#payment-container button:hover {
+  background-color: #218838;
+}
+
+
+
+body{
+  background-color: rgb(0, 0, 0);
+}
+
+
+
+
+

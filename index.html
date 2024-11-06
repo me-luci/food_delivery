@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login in foodie.com</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="bgVideo">
+        <source src="../img/bg666.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div id="loadingScreen" class="loading-screen">
+        <div class="spinner"></div>
+    </div>
+    <div class="container">
+        <div class="left">
+            <h1>Foodie.com</h1>
+            <form id="loginForm" action="javascript:void(0);" onsubmit="showLoadingAndValidateLogin()">
+                <div class="input-group">
+                    <label for="name" style="color: rgb(242, 237, 237);font-size: 20px; font-weight:bold;">Name 😌</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <div class="input-group">
+                    <label for="email" style="color: white;font-size: 20px;font-weight:bold;">Email address 📧</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="password" style="color: white;font-size: 20px;font-weight:bold;">Password 🔐</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password">
+                </div>
+                <div class="terms">
+                </div>
+                <button type="submit" class="signup-btn">Sign-in 👆</button>
+            </form>
+            <div class="social-login">
+                <p style="color: rgb(242, 237, 237);font-size: 20px; font-weight:bold;">Or</p>
+                <button class="google-btn">Sign in with Google</button>
+                <button class="apple-btn">Sign in with Apple</button>
+            </div>
+            <p  style="color: rgb(253, 253, 253);"   class="signin">Have an account? <a href="#">Sign In</a></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

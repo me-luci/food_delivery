@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="styles3.css">
+</head>
+<body>
+    <div class="invoice-container">
+        <header>
+            <div class="company-info">
+                <h1 class="watermark">Foodies</h1>
+                <p>NEAR GIET</p>
+                <p>Email: contact@foodies.com</p>
+                <p>Phone: 784-685-2349</p>
+            </div>
+            <div class="invoice-info">
+                <p>Invoice No: <span id="invoice-number"></span></p>
+                <p>Date: <span id="invoice-date"></span></p>
+            </div>
+        </header>
+        <h2>Invoice</h2>
+        <div id="invoice-details">
+            <!-- Item details will be dynamically inserted here -->
+        </div>
+        <div id="gst-details"></div>
+        <div class="invoice-total" id="invoice-total"></div>
+        <footer>
+            <p>Thank you for your order!</p>
+            <p>Count your Calories, stay fit, and visit again</p>
+        </footer>
+        <button onclick="printInvoice()">Print Invoice</button>
+    </div>
+
+    <!-- Shipping Details and Payment Options -->
+    <div id="payment-container">
+        <h2>Shipping Details</h2>
+        <label for="address">Address:</label>
+        <input type="text" id="address" placeholder="Enter your address here" required>
+        
+        <h2>Payment Method</h2>
+
+        <!-- Online Payment Option -->
+        <div class="payment-option">
+            <label>
+                <input type="radio" name="payment-method" value="online" required> Online Payment
+            </label>
+            <div class="online-options" style="display:none;">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" placeholder="1234-5678-9101-1121" maxlength="16" required>
+                
+                <label for="card-expiry">Expiry Date:</label>
+                <input type="month" id="card-expiry" required>
+                
+                <label for="card-cvv">CVV:</label>
+                <input type="text" id="card-cvv" placeholder="123" maxlength="3" required>
+
+                <label for="card-holder-name">Cardholder Name:</label>
+                <input type="text" id="card-holder-name" placeholder="Enter cardholder's name" required>
+            </div>
+        </div>
+
+        <!-- UPI Payment Option -->
+        <div class="payment-option">
+            <label>
+                <input type="radio" name="payment-method" value="upi" required> UPI Payment
+            </label>
+            <div class="upi-options" style="display:none;">
+                <label for="upi-id">UPI ID:</label>
+                <input type="text" id="upi-id" placeholder="example@upi" required>
+            </div>
+        </div>
+
+        <!-- Cash on Delivery (COD) Option -->
+        <div class="payment-option">
+            <label>
+                <input type="radio" name="payment-method" value="cod" required> Cash on Delivery (COD)
+            </label>
+            <p>Payment will be collected upon delivery. Please ensure you have the exact amount ready.</p>
+        </div>
+
+        <button onclick="validatePayment()">Proceed with Payment</button>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="display: none;">
+        <div class="loading-content">
+            <p>Processing your order, please wait...</p>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script src="invoice.js"></script>
+
+    <script>
+        document.querySelectorAll('input[name="payment-method"]').forEach((input) => {
+            input.addEventListener('change', function() {
+                document.querySelector('.online-options').style.display = this.value === 'online' ? 'block' : 'none';
+                document.querySelector('.upi-options').style.display = this.value === 'upi' ? 'block' : 'none';
+            });
+        });
+
+        function validatePayment() {
+            const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+            let valid = true;
+        
+            // Validate Online Payment
+            if (paymentMethod === 'online') {
+                const cardNumber = document.getElementById('card-number').value;
+                const cardExpiry = document.getElementById('card-expiry').value;
+                const cardCVV = document.getElementById('card-cvv').value;
+                const cardHolder = document.getElementById('card-holder-name').value;
+        
+                if (!cardNumber || !cardExpiry || !cardCVV || !cardHolder) {
+                    valid = false;
+                    alert("Please fill in all card details.");
+                }
+            } 
+            // Validate UPI Payment
+            else if (paymentMethod === 'upi') {
+                const upiId = document.getElementById('upi-id').value;
+                if (!upiId) {
+                    valid = false;
+                    alert("Please enter your UPI ID.");
+                }
+            }
+        
+            // If valid, process payment and redirect to Thank You page
+            if (valid) {
+                document.getElementById('loading-screen').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('loading-screen').style.display = 'none';
+                    // Redirect to thankyou.html after payment is processed
+                    window.location.href = "thankyou.html";
+                }, 3000); // Simulate a 3-second loading time
+            }
+        }
+        
+    </script>
+</body>
+</html>

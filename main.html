@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodies.com</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+
+    
+
+
+
+
+    <!-- Wrapper for Bot Icon and Text -->
+<div id="bot-container" style="position: fixed; bottom: 20px; right: 20px; text-align: center;">
+    <img src="bot-icon.png" alt="Food Bot" id="bot-icon" style="cursor: pointer; width: 50px; height: 50px;">
+    <!-- Add 'Food Bot' text -->
+    <div id="bot-text" style="font-size: 14px; margin-top: 5px;">
+        Food Bot
+    </div>
+</div>
+
+
+    <!-- Calorie Calculator Bot -->
+    <div id="calorie-calculator" class="hidden">
+        <h2>Calorie Calculator</h2>
+        <label for="calorie-input">Enter Total Calories:</label>
+        <input type="number" id="calorie-input" placeholder="Enter calories">
+    
+        <h4>Select Food Categories:</h4>
+        <label>
+            <input type="checkbox" name="food-category" value="pizza" checked>
+            Pizza
+        </label><br>
+        <label>
+            <input type="checkbox" name="food-category" value="drinks">
+            Drinks
+        </label><br>
+        <label>
+            <input type="checkbox" name="food-category" value="biryani">
+            Biryani
+        </label><br>
+        <label>
+            <input type="checkbox" name="food-category" value="desserts">
+            Desserts
+        </label><br>
+        
+        <button id="calculate-calories">Calculate Calories</button>
+        <div id="calorie-result"></div>
+        <button id="proceed-order">Proceed to Order</button>
+    </div>
+    
+
+
+
+    
+    
+    <nav class="navbar">
+        <div class="logo">Foodies</div>
+        <ul class="nav-links">
+            <li><a href="#pizza">Pizza</a></li>
+            <li><a href="#drinks">Drinks</a></li>
+            <li><a href="#biryani">Biryani</a></li>
+            <li><a href="#desserts">Desserts</a></li>
+        </ul>
+
+
+
+
+
+        <select id="restaurant-filter">
+            <option value="all">All Restaurants</option>
+            <option value="Pizza Place">Pizza Place</option>  
+            <option value="BBQ Bistro">BBQ Bistro</option>  
+            <option value="Tropical Pizza">Tropical Pizza</option>  
+            <option value="Indian Fusion">Indian Fusion</option> 
+            <option value="Ocean Delicacies">Ocean Delicacies</option>  
+            <option value="Beverage Bar">Beverage Bar</option>  
+            <option value="Fresh Squeeze">Fresh Squeeze</option>  
+            <option value="Summer Drinks">Summer Drinks</option> 
+            <option value="Smoothie Spot">Smoothie Spot</option>  
+            <option value="Milkshake Mania">Milkshake Mania</option>  
+            <option value="Biryani House">Biryani House</option>  
+            <option value="Dessert Haven">Dessert Haven</option>  
+            <option value="Ice Cream World">Ice Cream World</option>  
+            <option value="Fresh Fruits">Fresh Fruits</option>  
+            <option value="Italian Sweets">Italian Sweets</option>  
+            <option value="Veggie Delight">Veggie Delight</option>  
+        </select>
+        
+
+
+
+
+        <div class="filter-section">
+            <button id="all-filter">All</button>
+            <button id="veg-filter">Veg</button>
+            <button id="nonveg-filter">Non-Veg</button>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+        <div class="cart-account">
+            <div class="cart-icon" onclick="toggleCart()">🛒<span id="cart-count">0</span></div>
+            <div id="account-icon" class="dropdown">
+                <button class="dropbtn">👤 <span id="account-name">luci</span></button>
+                <div class="dropdown-content">
+                    <button id="logout-button" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-section">
+        <!-- Content sections -->
+        <section id="pizza" class="category-section">
+            <h2>Pizza ❤️</h2>
+            <div class="food-container"></div>
+        </section>
+        <section id="drinks" class="category-section">
+            <h2>Drinks 🍹</h2>
+            <div class="food-container"></div>
+        </section>
+        <section id="biryani" class="category-section">
+            <h2>Biryani 🍛</h2>
+            <div class="food-container"></div>
+        </section>
+        <section id="desserts" class="category-section">
+            <h2>Desserts 🍭</h2>
+            <div class="food-container"></div>
+        </section>
+    </div>
+
+    <div class="cart-sidebar" id="cart-sidebar">
+        <h2>Your Cart 🛒</h2>
+        <div class="cart-items" id="cart-items"></div>
+        <div class="cart-total">
+            <p>Total Price 💸: ₹<span id="cart-total-price">0.00</span></p>
+            <p>Total Calories 😀: <span id="cart-total-calories">0</span> kcal</p>
+            <p>Total Protein ⚡: <span id="cart-total-protein">0</span> g</p>
+            <p>Total Fats 😬: <span id="cart-total-fats">0</span> g</p>
+            <button class="checkout-btn" onclick="handleCheckout()">Checkout</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen" style="display: none;">
+        <div class="loading-content">
+            <p>Thank you for your order! Redirecting to your invoice...</p>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
